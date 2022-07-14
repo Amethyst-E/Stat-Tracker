@@ -1,7 +1,7 @@
 # Stat-Tracker
 Stat Tracker for speedrun atttemps, using pynput.
 
-Numpad 0-9 are the outputs in test2.txt from top to bottom, pressing a numpad key increments the corrosponding integer by 1 by default.\n
+Numpad 0-9 are the outputs in test2.txt from top to bottom, pressing a numpad key increments the corrosponding integer by 1 by default./n
 Pressing left Shift increments the incrementing value by 1.\n
   ESX: press Shift, press num1, the first integer goes up two, press Shift 2 times, press num1, the first integer goes up 4.\n
 Pressing left Alt does the same as Shift but increments negatively.\n
