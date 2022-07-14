@@ -2,7 +2,9 @@
 from pynput import keyboard
 
 var = [0,0,0,0,0,0,0,0,0,0]
+incr = [1]
 print(var)
+
 with open('test2.txt') as txt_file:
     line_count = 0
     for row in txt_file:
@@ -18,6 +20,11 @@ def writetxt(number,index):
     out.writelines(lines)
     out.close()
 
+var[0] = 0
+writetxt(var[0],0)
+var[1] = 0
+writetxt(var[1],1)
+
 def on_press(key):
     try:
         print('alphanumeric key {0} pressed'.format(
@@ -32,85 +39,57 @@ def on_release(key):
     match key:
         case keyboard.Key.esc:
             return False
-        case keyboard.Key.f1:
-            var[0] -= 1
+        case keyboard.Key.shift:
+            incr[0] += 1
+            return True
+        case keyboard.Key.alt_l:
+            incr[0] -= 1
+            return True
+        case keyboard.Key.ctrl_l:
+            incr[0] = 1
+            return True
+        case keyboard.KeyCode(vk=96):
+            var[0] += incr[0]
             writetxt(var[0],0)
-            return True
-        case keyboard.Key.f2:
-            var[1] -= 1
-            writetxt(var[1],1)
-            return True
-        case keyboard.Key.f3:
-            var[2] -= 1
-            writetxt(var[2],2)
-            return True
-        case keyboard.Key.f4:
-            var[3] -= 1
-            writetxt(var[3],3)
-            return True
-        case keyboard.Key.f5:
-            var[4] -= 1
-            writetxt(var[4],4)
-            return True
-        case keyboard.Key.f6:
-            var[5] -= 1
-            writetxt(var[5],5)
-            return True
-        case keyboard.Key.f7:
-            var[6] -= 1
-            writetxt(var[6],6)
-            return True
-        case keyboard.Key.f8:
-            var[7] -= 1
+            var[7] += incr[0]
             writetxt(var[7],7)
             return True
-        case keyboard.Key.f9:
-            var[8] -= 1
+        case keyboard.KeyCode(vk=97):
+            var[1] += incr[0]
+            writetxt(var[1],1)
+            var[8] += incr[0]
             writetxt(var[8],8)
             return True
-        case keyboard.Key.f10:
-            var[9] -= 1
-            writetxt(var[9],9)
-            return True
-
-        case keyboard.KeyCode(vk=96):
-            var[0] += 1
-            writetxt(var[0],0)
-            return True
-        case keyboard.KeyCode(vk=97):
-            var[1] += 1
-            writetxt(var[1],1)
-            return True
         case keyboard.KeyCode(vk=98):
-            var[2] += 1
+            var[2] += incr[0]
             writetxt(var[2],2)
             return True
         case keyboard.KeyCode(vk=99):
-            var[3] += 1
+            var[3] += incr[0]
             writetxt(var[3],3)
             return True
         case keyboard.KeyCode(vk=100):
-            var[4] += 1
+            var[4] += incr[0]
             writetxt(var[4],4)
             return True
         case keyboard.KeyCode(vk=101):
-            var[5] += 1
+            var[5] += incr[0]
             writetxt(var[5],5)
             return True
         case keyboard.KeyCode(vk=102):
-            var[6] += 1
+            var[6] += incr[0]
             writetxt(var[6],6)
             return True
         case keyboard.KeyCode(vk=103):
-            var[7] += 1
+            var[7] += incr[0]
             writetxt(var[7],7)
             return True
         case keyboard.KeyCode(vk=104):
-            var[8] += 1
+            var[8] += incr[0]
             writetxt(var[8],8)
             return True
         case keyboard.KeyCode(vk=105):
-            var[9] += 1
+            var[9] += incr[0]
             writetxt(var[9],9)
             return True
 
